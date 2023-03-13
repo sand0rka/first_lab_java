@@ -32,37 +32,27 @@ public class Trolleybus {
         float currentSpeed = 20;
     }
 
-    public void addPassenger() {
+    public int addPassenger() {
         if (passengers < capacity) {
             passengers += 1;
-        } else {
-            System.out.println("There is no free seats!");
+            return passengers;
         }
+        return 0;
     }
 
-    public void removePassenger() {
-        if (passengers != 0) {
-            passengers -= 1;
-        } else {
-            System.out.println("There is no passengers to remove!");
+    public int removePassenger() {
+        if (passengers == 0) {
+            return 0;
         }
+        passengers -= 1;
+        return passengers;
     }
 
     public static void main(String[] args) {
         Trolleybus[] trolleybuses = new Trolleybus[4];
-
         trolleybuses[0] = new Trolleybus();
-
         trolleybuses[1] = new Trolleybus(122, 22, "Sknylivok", 70, 50, 42);
-
         trolleybuses[2] = getInstance();
-        trolleybuses[2].setId(568);
-        trolleybuses[2].setRouteNumber(38);
-        trolleybuses[2].setCurrentStop("Kulparkiv");
-        trolleybuses[2].setMaxSpeed(60);
-        trolleybuses[2].setCapacity(40);
-        trolleybuses[2].setPassengers(13);
-
         trolleybuses[3] = getInstance();
 
         for (Trolleybus trolleybus : trolleybuses) {
