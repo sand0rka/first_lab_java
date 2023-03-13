@@ -12,6 +12,7 @@ import lombok.ToString;
 @Getter
 @ToString
 public class Trolleybus {
+    public static final int DEFAULT_TROLLEYBUS_COUNT = 4;
     private int id = 100;
     private int routeNumber;
     private String currentStop;
@@ -40,22 +41,21 @@ public class Trolleybus {
         return 0;
     }
 
-    public int removePassenger() {
+    public void removePassenger() {
         if (passengers == 0) {
-            return 0;
+            return;
         }
         passengers -= 1;
-        return passengers;
     }
 
     public static void main(String[] args) {
-        Trolleybus[] trolleybuses = new Trolleybus[4];
+        var trolleybuses = new Trolleybus[DEFAULT_TROLLEYBUS_COUNT];
         trolleybuses[0] = new Trolleybus();
         trolleybuses[1] = new Trolleybus(122, 22, "Sknylivok", 70, 50, 42);
         trolleybuses[2] = getInstance();
         trolleybuses[3] = getInstance();
 
-        for (Trolleybus trolleybus : trolleybuses) {
+        for (var trolleybus : trolleybuses) {
             System.out.println(trolleybus);
         }
     }
