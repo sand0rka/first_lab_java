@@ -22,5 +22,4 @@ public class BicycleTest {
         int speed2 = 45;
         assertEquals(0, bicycle.accelerate(speed2));
     }
-
 }

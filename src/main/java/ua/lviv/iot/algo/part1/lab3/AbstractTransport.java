@@ -1,5 +1,4 @@
 package ua.lviv.iot.algo.part1.lab3;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +12,8 @@ import lombok.ToString;
 @AllArgsConstructor
 
 abstract class AbstractTransport {
-    protected int id;
-    protected float maxSpeed;
+    private int id;
+    private float maxSpeed;
     public abstract int accelerate(int speed);
 
 }

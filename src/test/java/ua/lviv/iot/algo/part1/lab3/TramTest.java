@@ -29,5 +29,4 @@ public class TramTest {
         int speed2 = 90;
         assertEquals(0, tram.accelerate(speed2));
     }
-
 }

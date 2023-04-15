@@ -1,5 +1,4 @@
 package ua.lviv.iot.algo.part1.lab3;
-
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Getter;
@@ -16,7 +15,7 @@ public class Trolleybus extends AbstractTransport {
     private int capacity;
     private int passengers;
 
-    public Trolleybus(int id, int maxSpeed, int routeNumber, String currentStop, int capacity, int passengers) {
+    public Trolleybus(final int id, final int maxSpeed, final int routeNumber, final String currentStop, final int capacity, final int passengers) {
         super(id, maxSpeed);
         this.routeNumber = routeNumber;
         this.currentStop = currentStop;
@@ -24,16 +23,16 @@ public class Trolleybus extends AbstractTransport {
         this.passengers = passengers;
     }
 
-    public int stop() {
+    public final int stop() {
         return 0;
     }
 
-    public int start() {
-        int currentSpeed = 20;
+    public final int start() {
+        final int currentSpeed = 20;
         return currentSpeed;
     }
 
-    public int addPassenger() {
+    public final int addPassenger() {
         if (passengers < capacity) {
             passengers += 1;
             return passengers;
@@ -41,15 +40,15 @@ public class Trolleybus extends AbstractTransport {
         return 0;
     }
 
-    public void removePassenger() {
+    public final void removePassenger() {
         if (passengers == 0) {
             return;
         }
         passengers -= 1;
     }
 
-    public int accelerate(int speed) {
-        if (maxSpeed < speed) {
+    public final int accelerate(final int speed) {
+        if (getMaxSpeed() < speed) {
             return 0;
         }
         return speed;

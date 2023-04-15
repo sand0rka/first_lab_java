@@ -65,5 +65,4 @@ public class TrolleybusTest {
         int speed2 = 90;
         assertEquals(0, trolleybus.accelerate(speed2));
     }
-
 }

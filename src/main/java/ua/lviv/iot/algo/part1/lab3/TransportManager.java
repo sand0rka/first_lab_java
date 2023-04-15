@@ -5,15 +5,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TransportManager {
-    final List<AbstractTransport> transports = new LinkedList<>();
+    private List<AbstractTransport> transports = new LinkedList<>();
 
-    public void addTransport(AbstractTransport transport) {
+    public final void addTransport(final AbstractTransport transport) {
         this.transports.add(transport);
     }
 
-    public List<AbstractTransport> findTransportWithMaxSpeedHigherThan(int maxSpeed) {
+    public final List<AbstractTransport>
+    findTransportWithMaxSpeedHigherThan(final int maxSpeed) {
         Stream<AbstractTransport> abstractTransportStream = transports.stream().
                 filter(transport -> transport.
                         getMaxSpeed() > maxSpeed);
@@ -21,7 +26,7 @@ public class TransportManager {
                 collect(Collectors.toList());
     }
 
-    public List<AbstractTransport> findTransportById(int id) {
+    public final List<AbstractTransport> findTransportById(final int id) {
         return transports.stream().
                 filter(transport -> transport.
                         getId() == id).

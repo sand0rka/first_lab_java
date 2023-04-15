@@ -32,5 +32,4 @@ public class CarTest {
         int speed2 = 250;
         assertEquals(0, car.accelerate(speed2));
     }
-
 }
