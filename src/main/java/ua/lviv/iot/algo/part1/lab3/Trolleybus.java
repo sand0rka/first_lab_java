@@ -1,21 +1,23 @@
 package ua.lviv.iot.algo.part1.lab3;
+
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Getter;
-import lombok.ToString;
 
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString(callSuper = true)
-
 public class Trolleybus extends AbstractTransport {
     private int routeNumber;
     private String currentStop;
     private int capacity;
     private int passengers;
+    public static final String HEADERS =
+            "routeNumber, currentStop, capacity, passengers";
 
-    public Trolleybus(final int id, final int maxSpeed, final int routeNumber, final String currentStop, final int capacity, final int passengers) {
+
+    public Trolleybus(final int id, final int maxSpeed, final int routeNumber, final String currentStop,
+                      final int capacity, final int passengers) {
         super(id, maxSpeed);
         this.routeNumber = routeNumber;
         this.currentStop = currentStop;
@@ -52,5 +54,14 @@ public class Trolleybus extends AbstractTransport {
             return 0;
         }
         return speed;
+    }
+
+    public final String getHeaders() {
+        return super.getHeaders() + ", " + HEADERS;
+    }
+
+    public final String toCSV() {
+        return super.toCSV() + ", " + routeNumber + ", "
+                + currentStop + ", " + capacity + ", " + passengers;
     }
 }

@@ -1,0 +1,12 @@
+id, maxSpeed, bikeBrand
+247, 40.0, Kellys
+578, 50.0, Merida
+id, maxSpeed, numberOfDoors, trunkVolumeInLiters, maxLoadInTons
+2414, 200.0, 4, 300, 11
+5680, 250.0, 2, 450, 22
+id, maxSpeed, routeNumber, capacity
+1178, 80.0, 1, 200
+1166, 70.0, 4, 154
+id, maxSpeed, routeNumber, currentStop, capacity, passengers
+122, 65.0, 22, Sknylivok, 50, 34
+564, 60.0, 38, Kulparkiv, 60, 6

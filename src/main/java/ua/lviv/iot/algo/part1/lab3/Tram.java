@@ -1,19 +1,18 @@
 package ua.lviv.iot.algo.part1.lab3;
+
 import lombok.NoArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 @NoArgsConstructor
 @Getter
-@Setter
-@ToString(callSuper = true)
-
 public class Tram extends AbstractTransport {
     private int routeNumber;
     private int capacity;
+    public static final String HEADERS = "routeNumber, capacity";
 
-    public Tram(final int id, final int maxSpeed, final int routeNumber, final int capacity) {
+
+    public Tram(final int id, final int maxSpeed,
+                final int routeNumber, final int capacity) {
         super(id, maxSpeed);
         this.routeNumber = routeNumber;
         this.capacity = capacity;
@@ -26,4 +25,11 @@ public class Tram extends AbstractTransport {
         return speed;
     }
 
+    public final String getHeaders() {
+        return super.getHeaders() + ", " + HEADERS;
+    }
+
+    public final String toCSV() {
+        return super.toCSV() + ", " + routeNumber + ", " + capacity;
+    }
 }
