@@ -8,11 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 public class TransportWriter {
-
+    static final String DEFAULT_FILE_NAME = "result.csv";
     public final void writeToFile(final List<AbstractTransport> transports)
             throws IOException {
-        String defaultFileName = "result.csv";
-        FileWriter writer = new FileWriter(defaultFileName);
+        FileWriter writer = new FileWriter(DEFAULT_FILE_NAME);
         Map<String, Boolean> headerMap = new HashMap<>();
 
         transports.sort(new Comparator<AbstractTransport>() {

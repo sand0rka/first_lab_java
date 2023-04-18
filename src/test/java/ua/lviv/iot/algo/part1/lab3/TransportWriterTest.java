@@ -3,7 +3,6 @@ package ua.lviv.iot.algo.part1.lab3;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,19 +11,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TransportWriterTest {
-    private static final String EXPECTED_FILENAME =  "expected.csv";
+    private static final String EXPECTED_FILENAME = "expected.csv";
     private static final String RESULT_FILENAME = "result.csv";
 
     private TransportWriter transportWriter;
     private List<AbstractTransport> transports;
     private File actualFile;
+    private File fileToCompare = new File(RESULT_FILENAME);
 
     @BeforeEach
-    void setUp() throws IOException{
+    void setUp()  {
         transportWriter = new TransportWriter();
         transports = new LinkedList<>();
         transports.add(new Trolleybus(122, 65, 22, "Sknylivok", 50, 34));
@@ -46,10 +45,8 @@ class TransportWriterTest {
     @Test
     void testWriteToFileWithEmptyList() throws IOException {
         transports = new LinkedList<>();
-
         transportWriter.writeToFile(transports);
-
-        assertTrue(actualFile.exists());
+        assertEquals(fileToCompare, actualFile);
     }
 
     @Test
@@ -57,7 +54,7 @@ class TransportWriterTest {
         transportWriter.writeToFile(transports);
         Path expected = new File(RESULT_FILENAME).toPath();
         Path actual = new File(EXPECTED_FILENAME).toPath();
-        Assertions.assertEquals(-1L, Files.mismatch(expected, actual));
+        assertEquals(-1L, Files.mismatch(expected, actual));
 
     }
 
